@@ -8,20 +8,27 @@ const theme = extendTheme({
       fontSize: "16px",
       fontWeight: 600,
       lineHeight: "24px",
-      fontFamily: "'Poppins', sans-serif;",
+      fontFamily: '"Poppins", sans-serif;',
     },
     h2Medium: {
       fontSize: "60px",
       fontWeight: 500,
       lineHeight: "72px",
-      fontFamily: "'Poppins', sans-serif;",
+      fontFamily: '"Poppins", sans-serif;',
+      letterSpacing: "-2%",
+    },
+    h4Semibold:{
+      fontSize: "36px",
+      fontWeight: 600,
+      lineHeight: "44px",
+      fontFamily: '"Poppins", sans-serif;',
       letterSpacing: "-2%",
     },
     textRegular: {
       fontSize: "20px",
       fontWeight: 400,
       lineHeight: "30px",
-      fontFamily: "'Poppins', sans-serif;",
+      fontFamily: '"Poppins", sans-serif;',
     },
   },
   // colores personalizados
@@ -31,6 +38,7 @@ const theme = extendTheme({
         text: {
           primary: "#101828",
           tertiary: "#475467",
+          secondary: "#6941C6"
         },
         button:{
           bg:{
@@ -41,7 +49,7 @@ const theme = extendTheme({
             tertiary: "#475467",
             tertiaryColor: "#6941C6",
             primary: "#FFFFFF",
-            secondary: "#344054"
+            secondary: "#344054",
           }
         }
       },
@@ -52,6 +60,15 @@ const theme = extendTheme({
     md: "8px", // Radio medio
   },
   spacing: (factor) => `${0.25 * factor}rem`, // Sistema de espaciado en múltiplos de 0.25rem
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 900,
+      lg: 1200,
+      xl: 1536,
+    },
+  },
 });
 
 export default theme;

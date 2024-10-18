@@ -1,21 +1,62 @@
-import { Box, Grid, Typography } from '@mui/joy';
+import { Box, Typography, useTheme } from "@mui/joy";
 
 function FeaturesSection() {
+  const theme = useTheme();
   return (
-    <Box sx={{ padding: 4 , width: '100%',}}>
-      <Typography variant="h3" sx={{ textAlign: 'center', mb: 4 }}>
-        Key Features
-      </Typography>
-      <Grid container spacing={4}>
-        <Grid item xs={12} sm={6}>  {/* Correcto: Solo usar 'item' */}
-          <Typography variant="h6">Feature 1</Typography>
-          <Typography>Some details about this feature.</Typography>
-        </Grid>
-        <Grid item xs={12} sm={6}>  {/* Correcto: Solo usar 'item' */}
-          <Typography variant="h6">Feature 2</Typography>
-          <Typography>Some details about this feature.</Typography>
-        </Grid>
-      </Grid>
+    <Box
+      sx={{
+        paddingTop: theme.spacing(24),
+        paddingBottom: theme.spacing(24),
+        width: "100%",
+        height: "352px",
+        maxWidth: "100vw",
+        overflowX: "hidden",
+        background: "linear-gradient(180deg, #FFFFFF 0%, #F3F5F7 100%)",
+        display: "flex",              // Asegura que el contenido interno esté alineado
+        justifyContent: "center",     // Centra horizontalmente
+        alignItems: "center",         // Centra verticalmente
+      }}
+    >
+      <Box
+        sx={{
+          gap: "20px",
+          maxHeight: "160px",
+          maxWidth: "768px",
+          textAlign: "center",        // Asegura que el texto esté alineado en el centro
+        }}
+      >
+        <Typography
+          sx={(theme) => ({
+            cursor: "pointer",
+            mb: 4,
+            color: theme.palette.text.secondary,
+            ...theme.typography.textMdSemibold,
+          })}
+        >
+          Features
+        </Typography>
+        <Typography
+          sx={(theme) => ({
+            cursor: "pointer",
+            mb: 4,
+            color: theme.palette.text.primary,
+            ...theme.typography.h4Semibold,
+          })}
+        >
+          Unlock yourself with Solving AI
+        </Typography>
+        <Typography
+          sx={(theme) => ({
+            cursor: "pointer",
+            mb: 4,
+            color: theme.palette.text.tertiary,
+            ...theme.typography.textRegular,
+          })}
+        >
+          Dive into our suite of AI-powered applications and discover how they
+          can transform your daily operations.
+        </Typography>
+      </Box>
     </Box>
   );
 }

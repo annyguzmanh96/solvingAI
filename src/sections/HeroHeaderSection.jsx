@@ -16,6 +16,7 @@ function HeroHeaderSection() {
         height: "auto", // Ajusta la altura automáticamente
         backgroundImage: `url(${backgroundPattern})`,
         backgroundColor: "#F2F4F7",
+        backdropFilter: "blur(4px)",
         backgroundSize: "cover",
         paddingBottom: "80px", // Ajusta el espacio inferior
       }}
