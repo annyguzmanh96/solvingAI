@@ -5,8 +5,8 @@ function FeaturesSection() {
   return (
     <Box
       sx={{
-        paddingTop: theme.spacing(24),
-        paddingBottom: theme.spacing(24),
+        paddingTop: theme.spacing("9xl"),
+        paddingBottom: theme.spacing("9xl"),
         width: "100%",
         height: "352px",
         maxWidth: "100vw",

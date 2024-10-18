@@ -4,13 +4,19 @@ const theme = extendTheme({
   typography: {
     fontFamily: "Poppins, sans-serif",
     // Fuentes personalizadas
+    textSmSemibold: {
+      fontSize: "14px",
+      fontWeight: 600,
+      lineHeight: "20px",
+      fontFamily: '"Poppins", sans-serif;',
+    },
     textMdSemibold: {
       fontSize: "16px",
       fontWeight: 600,
       lineHeight: "24px",
       fontFamily: '"Poppins", sans-serif;',
     },
-    textSmSemibold: {
+    displaySmSemibold: {
       fontSize: "30px",
       fontWeight: 600,
       lineHeight: "38px",
@@ -30,6 +36,12 @@ const theme = extendTheme({
       fontFamily: '"Poppins", sans-serif;',
       letterSpacing: "-2%",
     },
+    mdRegular: {
+      fontSize: "16px",
+      fontWeight: 400,
+      lineHeight: "24px",
+      fontFamily: '"Poppins", sans-serif;',
+    },
     xlRegular: {
       fontSize: "20px",
       fontWeight: 400,
@@ -45,6 +57,7 @@ const theme = extendTheme({
           primary: "#101828",
           secondary: "#6941C6",
           tertiary: "#475467",
+          quaternary: "#667085"
         },
         bg: {
           primary: "#FFFFFF",
@@ -73,7 +86,16 @@ const theme = extendTheme({
     md: "8px", 
     xl: "16px"
   },
-  spacing: (factor) => `${0.25 * factor}rem`, // Sistema de espaciado en múltiplos de 0.25rem
+  spacing: (factor) => {
+    const scale = {
+      xl: "16px",
+      "4xl": "32px",
+      "6xl": "48px",
+      "7xl": "64px",
+      "9xl": "96px",
+    };
+    return typeof factor === "number" ? `${0.25 * factor}rem` : scale[factor];
+  },
   breakpoints: {
     values: {
       xs: 0,

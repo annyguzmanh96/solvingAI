@@ -42,7 +42,7 @@ function HeroHeaderSection() {
             maxWidth: "576px", // Ajusta el ancho máximo para mantener proporciones
             textAlign: { xs: "center", md: "left" }, // Centra el texto en móviles
             mb: { xs: 4, md: 0 }, // Espaciado inferior en pantallas pequeñas
-            paddingRight: theme.spacing(8),
+            paddingRight: theme.spacing("4xl"),
             gap: "48px",
           }}
         >
@@ -77,7 +77,7 @@ function HeroHeaderSection() {
             borderColor="#FFFFFF1F"
             text="Learn more about Solving AI"
             style={{
-              padding: `${theme.spacing(4)} ${theme.spacing(5.5)}`,
+              padding: `${theme.spacing.xl} 22px`,
               maxWidth: "305px", // Cambia el ancho para que se ajuste al contenido
             }}
           />

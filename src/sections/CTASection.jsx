@@ -8,7 +8,7 @@ function CTASection() {
   return (
     <Box
       sx={{
-        padding: `${theme.spacing(24)} ${theme.spacing(8)}`,
+        padding: `${theme.spacing("9xl")} ${theme.spacing("4xl")}`,
         textAlign: "center",
         backgroundColor: theme.palette.bg.primary,
         width: "100%",
@@ -21,8 +21,8 @@ function CTASection() {
           flexWrap: "wrap",
           textAlign: "center",
           backgroundColor: theme.palette.bg.secondary,
-          padding: theme.spacing(16),
-          gap: theme.spacing(8),
+          padding: theme.spacing("7xl"),
+          gap: theme.spacing("4xl"),
           maxWidth: "1216px",
           minHeight: "212px",
           borderRadius: theme.radius.xl,
@@ -32,13 +32,13 @@ function CTASection() {
         <Box
           sx={{
             textAlign: "initial",
-            gap: theme.spacing(4),
+            gap: theme.spacing.xl,
           }}
         >
           <Typography
             sx={(theme) => ({
               color: theme.palette.text.primary,
-              ...theme.typography.textSmSemibold,
+              ...theme.typography.displaySmSemibold,
             })}
           >
             The App is free to use!
@@ -55,7 +55,7 @@ function CTASection() {
         <Box
           sx={{
             display: "flex",
-            gap: theme.spacing(3),
+            gap: "12px",
           }}
         >
           <CustomButton

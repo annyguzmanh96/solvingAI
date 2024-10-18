@@ -13,8 +13,8 @@ function CustomButton(props) {
         minWidth: "auto",
         borderRadius: theme.radius.md,
         border: "1px",
-        padding: `${theme.spacing(3)} 18px`,
-        gap: theme.spacing(1.5),
+        padding: "12px 18px",
+        gap: "6px",
         boxShadow: `
         0px 1px 2px rgba(16, 24, 40, 0.05), 
         inset 0px -2px 0px rgba(16, 24, 40, 0.05),

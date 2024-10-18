@@ -1,27 +1,102 @@
-import { Box, Typography, Link } from "@mui/joy";
+import { Box, Typography, Grid, Link } from "@mui/joy";
+
+import { footerLinks } from "../utils/constans/footerLinks";
+import logo from "../assets/logo.svg";
 
 function Footer() {
   return (
     <Box
-      sx={{
-        padding: 4,
-        textAlign: "center",
-        backgroundColor: "#333",
-        color: "white",
+      sx={(theme) => ({
         width: "100%",
-      }}
+        backgroundColor: "#FFFFFF", // Fondo blanco
+        paddingTop: theme.spacing("7xl"), // Espaciado superior
+        paddingBottom: theme.spacing("6xl"), // Espaciado inferior
+        gap: theme.spacing("7xl"),
+      })}
     >
-      <Typography variant="body2">
-        &copy; 2024 Solving AI. All rights reserved.
-      </Typography>
-      <Link href="" sx={{ color: "white", ml: 2 }}>
-        Terms
-      </Link>
-      <Link href="" sx={{ color: "white", ml: 2 }}>
-        Privacy
-      </Link>
+      <Box
+        sx={(theme) => ({
+          width: "100%",
+          maxWidth: "1216px", // Ajuste del ancho máximo
+          margin: "0 auto", // Centramos horizontalmente
+          paddingRight: theme.spacing("4xl"), // Espaciado lateral
+          paddingLeft: theme.spacing("4xl"), // Espaciado lateral
+          paddingBottom: theme.spacing("6xl"), // Espaciado inferior
+        })}
+      >
+        <Grid container spacing={7} justifyContent="space-between">
+          {/* Map para generar cada columna de links */}
+          {footerLinks.map((section, index) => (
+            <Grid item xs={6} sm={4} md={2} key={index}>
+              <Typography
+                sx={(theme) => ({
+                  marginBottom: 2,
+                  color: theme.palette.text.primary,
+                  ...theme.typography.textSmSemibold,
+                })}
+              >
+                {section.title}
+              </Typography>
+              {section.links.map((link, linkIndex) => (
+                <Link
+                  key={linkIndex}
+                  href={link.url} 
+                  sx={(theme) => ({
+                    cursor: "pointer",
+                    marginBottom: 2,
+                    display: "block", // Para que se comporten como bloques individuales
+                    color: theme.palette.button.text.tertiaryColor,
+                    ...theme.typography.textMdSemibold,
+                    textDecoration: "none", 
+                    "&:hover": {
+                      textDecoration: "underline", 
+                    },
+                  })}
+                >
+                  {link.text}
+                </Link>
+              ))}
+            </Grid>
+          ))}
+        </Grid>
+      </Box>
+
+      {/* Pie de copyright */}
+      <Box
+        sx={(theme) => ({
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          borderTop: "1px solid #E4E7EC", // Borde superior
+          paddingTop: theme.spacing("4xl"),
+          paddingBottom: theme.spacing("4xl"),
+          paddingRight: theme.spacing("4xl"),
+          paddingLeft: theme.spacing("4xl"),
+          width: "100%",
+          maxWidth: "1216px", // Ajuste del ancho máximo
+          margin: "0 auto", // Centramos horizontalmente
+        })}
+      >
+        {/* Logotipo */}
+        <Box sx={{ display: "flex", alignItems: "center" }}>
+          <img
+            src={logo}
+            alt="Logo"
+            style={{ width: "142px", height: "auto" }}
+          />
+        </Box>
+        <Typography
+          sx={(theme) => ({
+            color: theme.palette.text.quaternary,
+            ...theme.typography.mdRegular,
+          })}
+        >
+          © 2024 Solving.ai All rights reserved.
+        </Typography>
+      </Box>
     </Box>
   );
 }
 
 export default Footer;
+
