@@ -11,10 +11,10 @@ function FeaturesSection() {
         height: "352px",
         maxWidth: "100vw",
         overflowX: "hidden",
-        background: "linear-gradient(180deg, #FFFFFF 0%, #F3F5F7 100%)",
-        display: "flex",              // Asegura que el contenido interno esté alineado
-        justifyContent: "center",     // Centra horizontalmente
-        alignItems: "center",         // Centra verticalmente
+        background: "linear-gradient(180deg, #F3F5F7 0%, #FFFFFF 100%)",
+        display: "flex", // Asegura que el contenido interno esté alineado
+        justifyContent: "center", // Centra horizontalmente
+        alignItems: "center", // Centra verticalmente
       }}
     >
       <Box
@@ -22,7 +22,7 @@ function FeaturesSection() {
           gap: "20px",
           maxHeight: "160px",
           maxWidth: "768px",
-          textAlign: "center",        // Asegura que el texto esté alineado en el centro
+          textAlign: "center", // Asegura que el texto esté alineado en el centro
         }}
       >
         <Typography
@@ -50,7 +50,7 @@ function FeaturesSection() {
             cursor: "pointer",
             mb: 4,
             color: theme.palette.text.tertiary,
-            ...theme.typography.textRegular,
+            ...theme.typography.xlRegular,
           })}
         >
           Dive into our suite of AI-powered applications and discover how they

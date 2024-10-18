@@ -43,7 +43,7 @@ function HeroHeaderSection() {
             textAlign: { xs: "center", md: "left" }, // Centra el texto en móviles
             mb: { xs: 4, md: 0 }, // Espaciado inferior en pantallas pequeñas
             paddingRight: theme.spacing(8),
-            gap:"48px"
+            gap: "48px",
           }}
         >
           <Typography
@@ -63,7 +63,7 @@ function HeroHeaderSection() {
               cursor: "pointer",
               mb: 2,
               color: theme.palette.text.primary,
-              ...theme.typography.textRegular,
+              ...theme.typography.xlRegular,
               maxWidth: "480px", // Mantén el ancho del párrafo alineado con el diseño
             }}
           >

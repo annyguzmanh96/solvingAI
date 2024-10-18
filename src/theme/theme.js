@@ -10,6 +10,12 @@ const theme = extendTheme({
       lineHeight: "24px",
       fontFamily: '"Poppins", sans-serif;',
     },
+    textSmSemibold: {
+      fontSize: "30px",
+      fontWeight: 600,
+      lineHeight: "38px",
+      fontFamily: '"Poppins", sans-serif;',
+    },
     h2Medium: {
       fontSize: "60px",
       fontWeight: 500,
@@ -17,14 +23,14 @@ const theme = extendTheme({
       fontFamily: '"Poppins", sans-serif;',
       letterSpacing: "-2%",
     },
-    h4Semibold:{
+    h4Semibold: {
       fontSize: "36px",
       fontWeight: 600,
       lineHeight: "44px",
       fontFamily: '"Poppins", sans-serif;',
       letterSpacing: "-2%",
     },
-    textRegular: {
+    xlRegular: {
       fontSize: "20px",
       fontWeight: 400,
       lineHeight: "30px",
@@ -37,27 +43,35 @@ const theme = extendTheme({
       palette: {
         text: {
           primary: "#101828",
+          secondary: "#6941C6",
           tertiary: "#475467",
-          secondary: "#6941C6"
         },
-        button:{
-          bg:{
+        bg: {
+          primary: "#FFFFFF",
+          secondary: "#F9FAFB",
+        },
+        button: {
+          bg: {
             primary: "#7F56D9",
             secondary: "#FFFFFF",
           },
-          text:{
-            tertiary: "#475467",
-            tertiaryColor: "#6941C6",
+          text: {
             primary: "#FFFFFF",
             secondary: "#344054",
-          }
-        }
+            tertiary: "#475467",
+            tertiaryColor: "#6941C6",
+          },
+          border: {
+            secondary: "#D0D5DD",
+          },
+        },
       },
     },
   },
   // radios personalizados
   radius: {
-    md: "8px", // Radio medio
+    md: "8px", 
+    xl: "16px"
   },
   spacing: (factor) => `${0.25 * factor}rem`, // Sistema de espaciado en múltiplos de 0.25rem
   breakpoints: {

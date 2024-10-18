@@ -6,7 +6,7 @@ function CustomTab(props) {
 
   return (
     <ScrollLink
-      to={toIdSection? toIdSection: ""}
+      to={toIdSection ? toIdSection : ""}
       smooth={true}
       duration={500}
       spy={true}
@@ -26,4 +26,3 @@ function CustomTab(props) {
 }
 
 export default CustomTab;
-
