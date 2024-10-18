@@ -1,5 +1,4 @@
 import { Box, Typography, useTheme } from "@mui/joy";
-
 import backgroundPattern from "../assets/backgroundPattern.svg";
 import content from "../assets/content.svg";
 import HeaderNavigation from "../components/HeaderNavigation";
@@ -13,23 +12,23 @@ function HeroHeaderSection() {
       sx={{
         position: "relative",
         width: "100%",
-        height: "auto", // Ajusta la altura automáticamente
         backgroundImage: `url(${backgroundPattern})`,
         backgroundColor: "#F2F4F7",
         backdropFilter: "blur(4px)",
         backgroundSize: "cover",
-        paddingBottom: "80px", // Ajusta el espacio inferior
+        paddingBottom: "80px",
       }}
     >
       <HeaderNavigation />
+
       <Box
         sx={{
           display: "flex",
           flexDirection: { xs: "column", md: "row" },
           justifyContent: "space-between",
           alignItems: "center",
-          height: "720px",
-          padding: { xs: "20px", md: "0 170px" }, // Ajusta el padding en móviles
+          padding: { xs: "120px 40px", md: "0 170px" }, // Padding responsivo
+          minHeight: { xs: "auto", md: "720px" }, // Altura flexible en móviles
         }}
       >
         {/* Columna de texto */}
@@ -39,21 +38,20 @@ function HeroHeaderSection() {
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
-            maxWidth: "576px", // Ajusta el ancho máximo para mantener proporciones
-            textAlign: { xs: "center", md: "left" }, // Centra el texto en móviles
-            mb: { xs: 4, md: 0 }, // Espaciado inferior en pantallas pequeñas
-            paddingRight: theme.spacing("4xl"),
-            gap: "48px",
+            textAlign: { xs: "center", md: "left" },
+            alignItems: { xs: "center", md: "flex-start" }, // Centra el contenido horizontalmente en móviles
+            paddingRight: { xs: 0, md: theme.spacing("4xl") },
+            mb: { xs: 4, md: 0 }, // Ajuste de margen en móviles
+            gap: theme.spacing(8),
           }}
         >
           <Typography
             sx={{
               cursor: "pointer",
-              mb: 2,
               color: theme.palette.text.primary,
-              gap: "16px",
-              width: "544px",
               ...theme.typography.h2Medium,
+              width: { xs: "100%", md: "544px" }, // Ajuste responsivo de ancho
+              mb: theme.spacing(2),
             }}
           >
             What can AI do for you?
@@ -61,15 +59,13 @@ function HeroHeaderSection() {
           <Typography
             sx={{
               cursor: "pointer",
-              mb: 2,
               color: theme.palette.text.primary,
               ...theme.typography.xlRegular,
-              maxWidth: "480px", // Mantén el ancho del párrafo alineado con el diseño
+              maxWidth: "480px",
+              mb: theme.spacing(2),
             }}
           >
-            At Solving.AI, we harness the transformative power of generative
-            artificial intelligence to pioneer a new frontier of software
-            applications.
+            At Solving.AI, we harness the transformative power of generative artificial intelligence to pioneer a new frontier of software applications.
           </Typography>
           <CustomButton
             color={theme.palette.button.text.primary}
@@ -78,7 +74,7 @@ function HeroHeaderSection() {
             text="Learn more about Solving AI"
             style={{
               padding: `${theme.spacing.xl} 22px`,
-              maxWidth: "305px", // Cambia el ancho para que se ajuste al contenido
+              maxWidth: "305px", // Responsivo para el botón
             }}
           />
         </Box>
@@ -91,14 +87,13 @@ function HeroHeaderSection() {
             justifyContent: "center",
             alignItems: "center",
             mt: { xs: 4, md: 0 },
-            maxWidth: "655px", // Asegura que la imagen no sea demasiado grande en pantallas pequeñas
-            height: "auto",
+            maxWidth: { xs: "100%", md: "655px" }, // Ajuste para pantallas pequeñas
           }}
         >
           <img
             src={content}
             alt="AI content"
-            style={{ width: "100%", height: "auto" }} // Ajusta para que la imagen sea responsiva
+            style={{ width: "100%", height: "auto" }} // Imagen responsiva
           />
         </Box>
       </Box>

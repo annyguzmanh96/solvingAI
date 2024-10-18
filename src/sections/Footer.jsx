@@ -73,6 +73,7 @@ function Footer() {
       <Box
         sx={(theme) => ({
           display: "flex",
+          flexWrap: "wrap",
           justifyContent: "space-between",
           alignItems: "center",
           borderTop: "1px solid #E4E7EC", // Borde superior

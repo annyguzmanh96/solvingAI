@@ -55,6 +55,7 @@ function CTASection() {
         <Box
           sx={{
             display: "flex",
+            flexWrap: "wrap",
             gap: "12px",
           }}
         >
