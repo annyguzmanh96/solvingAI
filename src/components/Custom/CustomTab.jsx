@@ -11,12 +11,19 @@ function CustomTab(props) {
       duration={500}
       spy={true}
       offset={-70}
+      activeClass="active-tab" // Assign active class
     >
       <Typography
         sx={(theme) => ({
           cursor: "pointer",
           color: color,
           ...theme.typography.textMdSemibold,
+          '&:hover': {
+            color: theme.palette.text.secondary, // Change color on hover
+          },
+          '&.active-tab': {
+            color: theme.palette.button.text.primary, // Change color when active
+          },
         })}
       >
         {text}
@@ -26,3 +33,4 @@ function CustomTab(props) {
 }
 
 export default CustomTab;
+

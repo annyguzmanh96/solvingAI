@@ -56,7 +56,7 @@ function CTASection() {
           sx={{
             display: "flex",
             flexWrap: "wrap",
-            gap: "12px",
+            gap: { xs: "20px", md: "12px" },
           }}
         >
           <CustomButton

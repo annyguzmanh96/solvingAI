@@ -1,4 +1,4 @@
-export const headerNavigationTabs = [
+export const navigationTabs = [
   {
     text: "Features",
     toIdSection: "featuresSection",

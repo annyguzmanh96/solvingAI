@@ -15,6 +15,8 @@ function FeaturesSection() {
         display: "flex", // Asegura que el contenido interno esté alineado
         justifyContent: "center", // Centra horizontalmente
         alignItems: "center", // Centra verticalmente
+        paddingLeft: { xs: theme.spacing("4xl"), md: 0 }, // Padding para móviles
+        paddingRight: { xs: theme.spacing("4xl"), md: 0 }, // Padding para móviles
       }}
     >
       <Box
@@ -62,3 +64,4 @@ function FeaturesSection() {
 }
 
 export default FeaturesSection;
+

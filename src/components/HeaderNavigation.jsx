@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import { Box, IconButton, Drawer, useTheme } from "@mui/joy";
-import MenuIcon from "@mui/icons-material/Menu"; // Icono del menú hamburguesa
-
+import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from "@mui/icons-material/Close"; // Close icon for the sidebar
 import logo from "../assets/logo.svg";
 import CustomTab from "./Custom/CustomTab";
-import { headerNavigationTabs } from "../utils/constans/HeaderNavigationTabs";
+import { navigationTabs } from "../utils/constans/navigationTabs";
 
 function HeaderNavigation() {
   const theme = useTheme();
-  const [open, setOpen] = useState(false); // Estado para controlar la apertura del Drawer
+  const [open, setOpen] = useState(false); // State to control the sidebar
 
-  // Función para abrir/cerrar el Drawer (menú hamburguesa)
+  // Toggle Drawer (Sidebar)
   const toggleDrawer = (open) => (event) => {
     if (
       event.type === "keydown" &&
@@ -37,16 +37,16 @@ function HeaderNavigation() {
           inset 0 0 0 1px rgba(16, 24, 40, 0.18)
         `,
         backgroundColor: "#fff",
-        position: "fixed",
+        position: "fixed", // Fixed for sticky effect
         top: 0,
         left: 0,
         right: 0,
-        zIndex: 200000,
+        zIndex: 2000, // Asegura que el navbar esté encima del contenido
       }}
     >
-      {/* Contenedor del Logo y Enlaces de Navegación */}
+      {/* Logo and Tabs Container */}
       <Box display="flex" alignItems="center">
-        {/* Logotipo */}
+        {/* Logo */}
         <Box sx={{ marginRight: theme.spacing.xl }}>
           <img
             src={logo}
@@ -55,27 +55,25 @@ function HeaderNavigation() {
           />
         </Box>
 
-        {/* Enlaces de Navegación: Visible en pantallas medianas y grandes */}
+        {/* Navigation Links for Desktop */}
         <Box
           sx={{
-            display: { xs: "none", md: "flex" }, // Oculta en pantallas pequeñas
-            gap: theme.spacing("4xl"), // Aplica 2rem de gap entre los tabs
+            display: { xs: "none", md: "flex" }, // Show only on desktop
+            gap: theme.spacing("4xl"), // Gap between tabs
           }}
         >
-          {headerNavigationTabs.map((tab, index) => {
-            return (
-              <CustomTab
-                text={tab.text}
-                color={theme.palette.button.text.tertiary}
-                toIdSection={tab.toIdSection}
-                key={index}
-              />
-            );
-          })}
+          {navigationTabs.map((tab, index) => (
+            <CustomTab
+              text={tab.text}
+              color={theme.palette.button.text.tertiary}
+              toIdSection={tab.toIdSection}
+              key={index}
+            />
+          ))}
         </Box>
       </Box>
 
-      {/* Botón de "Sign Up" para escritorio: Visible en pantallas medianas y grandes */}
+      {/* Sign Up for Desktop */}
       <Box sx={{ display: { xs: "none", md: "block" } }}>
         <CustomTab
           text="Sign Up"
@@ -83,40 +81,76 @@ function HeaderNavigation() {
         />
       </Box>
 
-      {/* Icono del menú hamburguesa: Visible solo en pantallas pequeñas */}
+      {/* Hamburger Menu for Mobile */}
       <IconButton
         onClick={toggleDrawer(true)}
-        sx={{
-          display: { xs: "block", md: "none" }, // Visible solo en móviles
-        }}
+        sx={{ display: { xs: "block", md: "none" } }} // Show only on mobile
       >
         <MenuIcon />
       </IconButton>
 
-      {/* Drawer que se abrirá al hacer clic en el menú hamburguesa */}
-      <Drawer anchor="right" open={open} onClose={toggleDrawer(false)}>
+      {/* Sidebar Drawer for Mobile */}
+      <Drawer
+        anchor="right"
+        open={open}
+        onClose={toggleDrawer(false)}
+        sx={{
+          zIndex: 3000, // Asegura que el Drawer esté encima del navbar fijo
+        }}
+      >
         <Box
           sx={{
             width: 250,
             padding: theme.spacing.xl,
+            display: "flex",
+            flexDirection: "column",
+            gap: theme.spacing(3), // Espacio entre los tabs
+            alignItems: "center",
+            paddingLeft: theme.spacing(3), // Padding izquierdo para separar los tabs del borde
           }}
           onClick={toggleDrawer(false)}
           onKeyDown={toggleDrawer(false)}
         >
-          {/* Menú del Drawer con Joy UI */}
-          <CustomTab
-            text="Features"
-            color={theme.palette.button.text.tertiary}
-            toIdSection="featuresSection"
-          />
-          <CustomTab
-            text="FAQ"
-            color={theme.palette.button.text.tertiary}
-            toIdSection="ctaSection"
-          />
+          {/* Close Button for the Drawer */}
+          <IconButton
+            onClick={toggleDrawer(false)}
+            sx={{ alignSelf: "flex-start", mb: theme.spacing.xl }}
+          >
+            <CloseIcon />
+          </IconButton>
+
+          {/* Drawer Menu */}
+          {navigationTabs.map((tab, index) => (
+            <CustomTab
+              text={tab.text}
+              color={theme.palette.button.text.tertiary}
+              toIdSection={tab.toIdSection}
+              key={index}
+              sx={{
+                padding: `${theme.spacing.xl} 0`, // Padding vertical para los tabs
+                width: "100%", // Para ocupar el ancho completo en el sidebar
+                textAlign: "left", // Alineación de texto en el sidebar
+                "&:hover": {
+                  backgroundColor: theme.palette.bg.primary,
+                  borderRadius: theme.radius.md,
+                },
+              }}
+            />
+          ))}
+
+          {/* Sign Up in Sidebar */}
           <CustomTab
             text="Sign Up"
             color={theme.palette.button.text.tertiaryColor}
+            sx={{
+              padding: `${theme.spacing.xl} 0`, // Padding adicional para el tab de "Sign Up"
+              width: "100%",
+              textAlign: "left",
+              "&:hover": {
+                backgroundColor: theme.palette.bg.primary,
+                borderRadius: theme.radius.md,
+              },
+            }}
           />
         </Box>
       </Drawer>

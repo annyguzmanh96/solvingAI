@@ -23,10 +23,7 @@ function CustomButton(props) {
         ...style,
         "&:hover": {
           backgroundColor: backgroundColor, // Mantiene el color de fondo
-          boxShadow: `
-              0px 8px 10px rgba(16, 24, 40, 0.1), 
-              inset 0px -2px 0px rgba(16, 24, 40, 0.05),
-              inset 0px 0px 0px 1px rgba(16, 24, 40, 0.18);`,
+          opacity: 0.92,
         },
       })}
     >
