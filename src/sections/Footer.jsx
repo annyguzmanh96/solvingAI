@@ -2,6 +2,7 @@ import { Box, Typography, Grid, Link } from "@mui/joy";
 
 import { footerLinks } from "../utils/constans/footerLinks";
 import logo from "../assets/logo.svg";
+import CustomBadge from "../components/Custom/CustomBadge";
 
 function Footer() {
   return (
@@ -38,23 +39,30 @@ function Footer() {
                 {section.title}
               </Typography>
               {section.links.map((link, linkIndex) => (
-                <Link
-                  key={linkIndex}
-                  href={link.url} 
-                  sx={(theme) => ({
-                    cursor: "pointer",
-                    marginBottom: 2,
-                    display: "block", // Para que se comporten como bloques individuales
-                    color: theme.palette.button.text.tertiaryColor,
-                    ...theme.typography.textMdSemibold,
-                    textDecoration: "none", 
-                    "&:hover": {
-                      textDecoration: "underline", 
-                    },
-                  })}
-                >
-                  {link.text}
-                </Link>
+                <Box key={linkIndex} sx={(theme) => ({ display: "flex", alignItems: "center", gap: theme.spacing.md, alignContent: "center" })}>
+                  <Link
+                    href={link.url}
+                    sx={(theme) => ({
+                      cursor: "pointer",
+                      marginBottom: 2,
+                      display: "block", // Para que se comporten como bloques individuales
+                      color: theme.palette.button.text.tertiaryColor,
+                      ...theme.typography.textMdSemibold,
+                      textDecoration: "none",
+                      "&:hover": {
+                        textDecoration: "underline",
+                      },
+                    })}
+                  >
+                    {link.text}
+                  </Link>
+                  {/* Si el enlace tiene el campo 'badge', mostrar el badge */}
+                  {link.badge && (
+                    <CustomBadge
+                      text={link.badge}
+                    />
+                  )}
+                </Box>
               ))}
             </Grid>
           ))}
@@ -99,4 +107,3 @@ function Footer() {
 }
 
 export default Footer;
-

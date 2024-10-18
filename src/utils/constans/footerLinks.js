@@ -4,7 +4,7 @@ export const footerLinks = [
     links: [
       { text: "Overview", url: "/overview" },
       { text: "Features", url: "/features" },
-      { text: "Solutions", url: "/solutions" },
+      { text: "Solutions", url: "/solutions", badge: "New" },
       { text: "Tutorials", url: "/tutorials" },
       { text: "Pricing", url: "/pricing" },
       { text: "Releases", url: "/releases" }

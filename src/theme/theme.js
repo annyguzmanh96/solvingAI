@@ -4,6 +4,12 @@ const theme = extendTheme({
   typography: {
     fontFamily: "Poppins, sans-serif",
     // Fuentes personalizadas
+    textXsMedium:{
+      fontSize: "12px",
+      fontWeight: 500,
+      lineHeight: "18px",
+      fontFamily: '"Poppins", sans-serif;',
+    },
     textSmSemibold: {
       fontSize: "14px",
       fontWeight: 600,
@@ -57,7 +63,12 @@ const theme = extendTheme({
           primary: "#101828",
           secondary: "#6941C6",
           tertiary: "#475467",
-          quaternary: "#667085"
+          quaternary: "#667085",
+        },
+        brand: {
+          utility: {
+            700: "#6941C6",
+          },
         },
         bg: {
           primary: "#FFFFFF",
@@ -83,11 +94,14 @@ const theme = extendTheme({
   },
   // radios personalizados
   radius: {
-    md: "8px", 
-    xl: "16px"
+    md: "8px",
+    xl: "16px",
+    full: "9999px",
   },
   spacing: (factor) => {
     const scale = {
+      xxs: "2px",
+      md: "8px",
       xl: "16px",
       "4xl": "32px",
       "6xl": "48px",
